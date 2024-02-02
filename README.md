@@ -161,3 +161,4 @@ from your command line.
 - Expand our test suite to include proper integration tests;
 - Authentication - it was not included as part of this MVP1, which poses a great threat to the reliability of our system. For this version, it is advisable to make it only accessible internally, as a first step;
 - As stated before, entries in the `Vehicle` table are created along with `Deliveries`. It would be interesting that a separate set of endpoints is created, so that the `create delivery` endpoint is not responsible for anything except creating deliveries;
+- Include logs;
