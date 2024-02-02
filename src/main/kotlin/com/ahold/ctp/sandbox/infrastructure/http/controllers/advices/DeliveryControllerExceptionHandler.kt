@@ -8,9 +8,9 @@ import org.springframework.web.server.ResponseStatusException
 @ControllerAdvice
 class DeliveryControllerExceptionHandler {
     @ExceptionHandler(value = [Throwable::class])
-    fun handleException(throwable: Throwable) {
+    fun handleException(throwable: Throwable): ResponseStatusException {
         if (throwable is IllegalArgumentException) {
-            throw ResponseStatusException(HttpStatus.BAD_REQUEST, throwable.message)
-        } else throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, throwable.message)
+            return ResponseStatusException(HttpStatus.BAD_REQUEST, throwable.message)
+        } else return ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, throwable.message)
     }
 }
