@@ -2,7 +2,7 @@ spring:
   application:
     name: ctp-backend-assignment-sandbox
   datasource:
-    url: jdbc:sqlite:mydb.sqlite
+    url: jdbc:sqlite:/usr/app/data/mydb.sqlite
     driver-class-name: org.sqlite.JDBC
     username: admin
     password: admin
