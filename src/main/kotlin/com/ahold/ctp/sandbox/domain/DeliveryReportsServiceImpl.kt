@@ -10,6 +10,7 @@ import java.time.*
 import java.time.temporal.ChronoUnit
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
+import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
 
 @Service
@@ -21,16 +22,14 @@ class DeliveryReportsServiceImpl(
         val (startDate, endDate) = getStartAndEndDates()
         val deliveries = deliveryRepository.findAllByStartedAtBetweenOrderByStartedAt(startDate, endDate)
 
-        val timeDifferences = deliveries.map { it.startedAt.time.minutes.inWholeMinutes }
-            .zipWithNext { first, second ->
-                abs(first - second)
-            }
+        val timeDifferences = deliveries.map { it.startedAt.time.milliseconds.inWholeMinutes }
+            .zipWithNext { first, second -> abs(first - second) }
 
-        val sum = timeDifferences.sumOf { TimeUnit.MILLISECONDS.toMinutes(it) }
+        val average = timeDifferences.takeIf { it.isNotEmpty() }
+            ?.let { it.sum() / it.size }
+            ?: 0
 
-        val average = if (timeDifferences.isNotEmpty()) (sum / timeDifferences.size).toInt() else 0
-
-        return AverageMinutesBetweenDeliveryReport(deliveries.size, average)
+        return AverageMinutesBetweenDeliveryReport(deliveries.size, average.toInt())
     }
 
     private fun getStartAndEndDates(): Pair<Timestamp, Timestamp> {

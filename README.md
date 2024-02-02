@@ -19,6 +19,7 @@ Developed using:
   implemented, along with audit logs;
 - It wasn't clear whether a user could move a delivery from `DELIVERED` to `IN_PROGRESS`. Given this is a system to be
   used on the go, mistakes can happen, hence why it was made possible to move between those states;
+- For the report, as it should consider all the deliveries that were **started** in the day before, the ones that have been finished were considered as well, given the metric gives us an understanding of how long it took the person to be able to start the next delivery;
 
 # Technicalities
 
