@@ -19,7 +19,9 @@ Developed using:
   implemented, along with audit logs;
 - It wasn't clear whether a user could move a delivery from `DELIVERED` to `IN_PROGRESS`. Given this is a system to be
   used on the go, mistakes can happen, hence why it was made possible to move between those states;
-- For the report, as it should consider all the deliveries that were **started** in the day before, the ones that have been finished were considered as well, given the metric gives us an understanding of how long it took the person to be able to start the next delivery;
+- For the report, as it should consider all the deliveries that were **started** in the day before, the ones that have
+  been finished were considered as well, given the metric gives us an understanding of how long it took the person to be
+  able to start the next delivery;
 
 # Technicalities
 
@@ -34,7 +36,8 @@ Developed using:
   and `Vehicle`,
 - Given Albert Heijn exists in different countries, meaning potentially different timezones, it was decided to store all
   the dates in `UTC`;
-- Given that this microservice is expected to be interacted with by users, descriptive messages were included for error scenarios;
+- Given that this microservice is expected to be interacted with by users, descriptive messages were included for error
+  scenarios;
 
 ## Database Schema
 
@@ -213,5 +216,6 @@ from your command line.
   separate set of endpoints is created, so that the `create delivery` endpoint is not responsible for anything except
   creating deliveries;
 - Include logs;
-- Depending on the amount of users, it would be interesting to expand the stack so that it can better handle back pressure, for example, by using [WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux.html);
+- Depending on the amount of users, it would be interesting to expand the stack so that it can better handle back
+  pressure, for example, by using [WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux.html);
 - Include language localization;

@@ -6,12 +6,12 @@ import com.ahold.ctp.sandbox.repositories.DeliveryRepository
 import com.ahold.ctp.sandbox.utils.AMSTERDAM_TIMEZONE
 import org.springframework.stereotype.Service
 import java.sql.Timestamp
-import java.time.*
+import java.time.LocalTime
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
-import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.minutes
 
 @Service
 class DeliveryReportsServiceImpl(
