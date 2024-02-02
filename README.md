@@ -212,3 +212,4 @@ from your command line.
   separate set of endpoints is created, so that the `create delivery` endpoint is not responsible for anything except
   creating deliveries;
 - Include logs;
+- Depending on the amount of users, it would be interesting to expand the stack so that it can better handle back pressure, for example, by using [WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux.html);
