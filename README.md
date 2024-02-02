@@ -186,11 +186,7 @@ Host: localhost:8080
 
 ## How to run
 
-Run the file name `run.sh` at the root level of the project, or
-
-`docker build -t ah . && docker run -p 8080:8080 ah`
-
-from your command line.
+Run the file name `run.sh` at the root level of the project.
 
 ## Questions
 
