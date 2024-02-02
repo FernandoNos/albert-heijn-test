@@ -34,21 +34,19 @@ class DeliveryReportsServiceImpl(
 
     private fun getStartAndEndDates(): Pair<Timestamp, Timestamp> {
         val amsterdamZone = AMSTERDAM_TIMEZONE
-        val yesterday = LocalDateTime.now(amsterdamZone)
+        val yesterday = ZonedDateTime.now(amsterdamZone)
             .minus(1, ChronoUnit.DAYS)
-            .toLocalDate()
-        val startDate = getTimestampInUTC(yesterday, LocalTime.MIDNIGHT, amsterdamZone)
-        val endDate = getTimestampInUTC(yesterday, LocalTime.MAX, amsterdamZone)
+
+        val startDate = getTimestampInUTC(yesterday, LocalTime.MIDNIGHT)
+        val endDate = getTimestampInUTC(yesterday, LocalTime.MAX)
         return Pair(startDate, endDate)
     }
 
-    private fun getTimestampInUTC(forDate: LocalDate, time: LocalTime, timeZone: ZoneId?): Timestamp =
+    private fun getTimestampInUTC(forDate: ZonedDateTime, time: LocalTime): Timestamp =
         Timestamp.valueOf(
-            LocalDateTime.of(
-                LocalDate.of(forDate.year, forDate.month, forDate.dayOfMonth),
-                time
-            )
-                .atZone(timeZone)
+            forDate.withHour(time.hour)
+                .withMinute(time.minute)
+                .withSecond(time.second)
                 .withZoneSameInstant(ZoneOffset.UTC)
                 .toLocalDateTime()
         )
