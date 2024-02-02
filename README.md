@@ -33,6 +33,7 @@ Developed using:
   and `Vehicle`,
 - Given Albert Heijn exists in different countries, meaning potentially different timezones, it was decided to store all
   the dates in `UTC`;
+- Given that this microservice is expected to be interacted with by users, descriptive messages were included for error scenarios;
 
 ## Database Schema
 
