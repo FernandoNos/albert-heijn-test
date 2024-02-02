@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service
 class VehicleServiceImpl(
     val vehicleRepository: VehicleRepository
 ) : VehicleServiceInterface {
-    override fun findOrCreateVehicleByPlate(plate: String): VehicleEntity {
-        var vehicle = vehicleRepository.findByVehicleId(plate)
+    override fun findOrCreateVehicleByPlate(vehicleId: String): VehicleEntity {
+        var vehicle = vehicleRepository.findByVehicleId(vehicleId)
         if (vehicle == null) {
             vehicle = VehicleEntity()
-            vehicle.vehicleId = plate
+            vehicle.vehicleId = vehicleId
             return vehicleRepository.save(vehicle)
         }
         return vehicle
