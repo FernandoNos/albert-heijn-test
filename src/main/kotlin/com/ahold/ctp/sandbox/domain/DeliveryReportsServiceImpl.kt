@@ -33,10 +33,6 @@ class DeliveryReportsServiceImpl(
         return AverageMinutesBetweenDeliveryReport(deliveries.size, average)
     }
 
-    /*
-        I do not save the dates in Amsterdam timezone because
-        albert heijn has stores in other countries
-     */
     private fun getStartAndEndDates(): Pair<Timestamp, Timestamp> {
         val amsterdamZone = AMSTERDAM_TIMEZONE
         val yesterday = LocalDateTime.now(amsterdamZone)
