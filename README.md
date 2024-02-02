@@ -15,7 +15,6 @@ Developed using:
 - From the description, it was understood that multiple deliveries can be carried out by one vehicle;
 - The user is allowed to enter deliveries in the past, but not in the future, given we do not have a status
   for `FUTURE_DELIVERY`;
-- The user can update a delivery that is `IN_PROGRESS` to `DELIVERED` and vice-versa;
 - Authentication was kept out of this version, but in order to take the next steps, it would be mandatory to have it
   implemented, along with audit logs;
 - It wasn't clear whether a user could move a delivery from `DELIVERED` to `IN_PROGRESS`. Given this is a system to be
