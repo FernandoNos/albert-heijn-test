@@ -44,7 +44,7 @@ data class CreateDelivery(
         if (status == DeliveryStatus.DELIVERED) {
             throw IllegalArgumentException("DELIVERED cannot be used while creating a new delivery")
         }
-        if(startedAt.toTimestamp().time > ZonedDateTime.now().toTimestamp().time) {
+        if (startedAt.toTimestamp().time > ZonedDateTime.now().toTimestamp().time) {
             throw IllegalArgumentException("startedAt cannot be in the future!")
         }
     }
@@ -53,7 +53,7 @@ data class CreateDelivery(
 data class VehicleId(val id: String) {
     init {
         val regexPattern = Regex("\\w\\w\\w-\\d\\d\\d")
-        if(!id.matches(regexPattern))
+        if (!id.matches(regexPattern))
             throw IllegalArgumentException("Invalid Vehicle id received - $id")
     }
 }

@@ -18,6 +18,6 @@ class DeliveryEntity(
     @Column(name = "finished_at")
     var finishedAt: Timestamp? = null,
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="delivered_by", nullable=false)
+    @JoinColumn(name = "delivered_by", nullable = false)
     val deliveredBy: VehicleEntity
 )

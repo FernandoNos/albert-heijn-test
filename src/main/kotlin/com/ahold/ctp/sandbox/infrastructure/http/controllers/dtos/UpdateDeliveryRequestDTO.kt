@@ -3,7 +3,6 @@ package com.ahold.ctp.sandbox.infrastructure.http.controllers.dtos
 import com.ahold.ctp.sandbox.domain.enums.DeliveryStatus
 import com.ahold.ctp.sandbox.domain.valueobjects.DeliveryObject
 import com.ahold.ctp.sandbox.domain.valueobjects.UpdateDelivery
-import org.hibernate.sql.Update
 import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException
 import java.time.ZonedDateTime

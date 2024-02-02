@@ -1,4 +1,3 @@
-
 ## Assignment
 
 The assignment is to implement Kotlin microservice using Spring boot. The expected REST endpoints schema is described
